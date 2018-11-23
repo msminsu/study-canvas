@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        canvas{
+            width:100%;
+            height: 100vh;
+            border:1px solid black
+            
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+</body>
+<script>
+    var canvas = document.querySelector('canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+        
+    var c = canvas.getContext('2d');
+
+    // c.fillRect(100,100, 20, 20);
+
+    
+    /* c.beginPath();
+    c.arc(200,200,30, 0, Math.PI * 2, false);
+    c.strokeStyle = 'blue';
+    c.stroke(); */
+
+
+function Circle(x,y, dx, dy){
+        this.x = x;
+        this.y = y;
+        this.dx = dx;
+        this.dy = dy;
+        
+        this.draw = function(){
+            c.beginPath();
+            c.arc(x,y,radius, 0, Math.PI * 2, false);
+            c.strokeStyle = 'blue';
+            c.stroke();
+        }
+
+        this.updat = function(){
+            if( x + radius > innerWidth || x -radius < 0){
+            dx = -dx;
+            }
+
+            if( y + radius > innerHeight || y -radius < 0){
+                dy = -dy;
+            }
+            x += dx;
+            y += dy;
+        }
+}
+
+var circle = new Circle(200, 200);
+
+// circle.draw();
+
+var x = Math.random() * innerWidth;
+var y = Math.random() * innerHeight;
+var dx = (Math.random() - 0.5) * 8;
+var dy = (Math.random() - 0.5) * 8;
+var radius = 30;
+    function animate(){
+        requestAnimationFrame(animate);
+        
+
+        c.clearRect(0, 0, innerWidth, innerHeight);
+
+        circle.draw();
+        c.beginPath();
+        c.arc(x,y,radius, 0, Math.PI * 2, false);
+        c.strokeStyle = 'blue';
+        c.stroke();
+
+       /*  if( x + radius > innerWidth || x -radius < 0){
+            dx = -dx;
+        }
+
+        if( y + radius > innerHeight || y -radius < 0){
+            dy = -dy;
+        }
+        x += dx;
+        y += dy; */
+    }
+    
+animate();
+
+</script>
+</html>

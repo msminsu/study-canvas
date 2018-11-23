@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        canvas{
+            border:1px solid black
+            
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+</body>
+<script>
+var canvas = document.querySelector('canvas');
+canvas.width = document.innerWidth;
+canvas.height = document.innerHeight;
+var c = canvas.getContext('2d');
+console.log(canvas);
+</script>
+</html>
