@@ -43,11 +43,11 @@ var maxRadius = 40;
 // var minRadius = 2;
 
 var colorArray = [
-    '#EF4666',
-    '#F69B9A',
-    '#FBCEAE',
-    '#C7C8A9',
-    '#84AF9C',
+    '#ffaa33',
+    '#99ffaa',
+    '#00ff00',
+    '#4411aa',
+    '#ff1100',
 ]
 
 window.addEventListener('mousemove',
@@ -106,7 +106,6 @@ function Circle(x,y, dx, dy, radius){
         }
 }
 
-
 var circle = new Circle(200, 200, 3,3, 30);
 
 // circle.draw();
@@ -115,11 +114,8 @@ var circle = new Circle(200, 200, 3,3, 30);
 
 
 
-
 var circleArr = [];
-function init(){
-    
-    circleArr = [];
+
 for(var i =0; i<800; i++){
     var radius = Math.random() *3 + 1;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
@@ -127,7 +123,6 @@ for(var i =0; i<800; i++){
     var dx = (Math.random() - 0.5); //* 8;
     var dy = (Math.random() - 0.5); //* 8;
     circleArr.push(new Circle(x, y, dx, dy, radius));
-}
 }
     
     function animate(){
@@ -157,7 +152,6 @@ for(var i =0; i<800; i++){
         y += dy; */
     }
     
-    init();
 animate();
 
 </script>
